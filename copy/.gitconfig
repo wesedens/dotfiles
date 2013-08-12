@@ -1,46 +1,49 @@
 [user]
-  name = Ben Alman
-  email = EMAIL
+  name  = Wes Edens
+  email = wes.k.edens@gmail.com
 [core]
-  autocrlf = input
-  whitespace = fix,space-before-tab,tab-in-indent,trailing-space
+  autocrlf     = input
+  whitespace   = fix,space-before-tab,tab-in-indent,trailing-space
   excludesfile = ~/.gitignore_global
 [apply]
   whitespace = fix
 [alias]
-  br = branch
-  ci = commit
-  co = checkout
-  df = diff
-  g = grep -I
-  lg = log -p
-  pp = !"echo 'Pull'; git pull; echo 'Push'; git push"
-  rb = rbranch
-  rv = review
-  st = status
-  ksdiff = difftool -y -t Kaleidoscope
+  br     = branch
+  ci     = commit
+  co     = checkout
+  df     = diff
+  g      = grep -I
+  lg     = log -p
+  pp     = !"echo 'Pull'; git pull; echo 'Push'; git push"
+  rb     = rbranch
+  rv     = review
+  st     = status
+  kd     = difftool -y -t kdiff3
 [branch "master"]
   remote = origin
-  merge = refs/heads/master
+  merge  = refs/heads/master
 [color]
-  ui = auto
+  ui     = true
+  status = auto
 [color "branch"]
   current = yellow reverse
-  local = yellow
-  remote = green
+  local   = yellow
+  remote  = green
 [color "diff"]
   meta = yellow bold
   frag = magenta bold
-  old = red bold
-  new = green bold
+  old  = red bold
+  new  = green bold
 [color "status"]
-  added = yellow
-  changed = green
+  added     = yellow
+  changed   = green
   untracked = cyan
 [merge]
-  log = true
-[difftool "Kaleidoscope"]
-  cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+  tool = kdiff3
+  log  = true
+[diff]
+  tool = kdiff3
+[difftool "kdiff3"]
 [rerere]
   enabled = 1
 [url "git@github.com:"]
@@ -49,11 +52,3 @@
   pushInsteadOf = "git://github.com/"
 [url "git://github.com/"]
   insteadOf = "github:"
-[url "git@gist.github.com:"]
-  insteadOf = "gst:"
-  pushInsteadOf = "gist:"
-  pushInsteadOf = "git://gist.github.com/"
-[url "git://gist.github.com/"]
-  insteadOf = "gist:"
-[url "git@heroku.com:"]
-  insteadOf = "heroku:"
