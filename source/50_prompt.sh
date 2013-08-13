@@ -69,6 +69,29 @@ function prompt_git() {
   echo "$c1[$c0$output$c1]$c9"
 }
 
+# hg status.
+function prompt_hg() {
+  prompt_getcolors
+  local status summary output bookmark flags
+  status="$(hg status 2>/dev/null)"
+  summary="$(hg summary 2>/dev/null)"
+  [[ $? != 0 ]] && return;
+  output="$(echo "$summary" | awk '/branch:/ {print $2}')"
+  bookmark="$(echo "$summary" | awk '/bookmarks:/ {print $2}')"
+  #[[ "$output" ]] || output="$(git branch | perl -ne '/^\* (.*)/ && print $1')"
+  flags="$(
+    echo "$status" | awk 'BEGIN {r="";a=""} \
+      /(^M)/        {r= "+"}\
+      /(^\\?)/      {a= "?"}\
+      END {print r a}'
+  )"
+  output="$output:$bookmark"
+  if [[ "$flags" ]]; then
+    output="$output$c1:$c0$flags"
+  fi
+  echo "$c1[$c0$output$c1]$c9"
+}
+
 # SVN info.
 function prompt_svn() {
   prompt_getcolors
@@ -105,6 +128,8 @@ function prompt_command() {
   PS1="$PS1$(prompt_svn)"
   # git: [branch:flags]
   PS1="$PS1$(prompt_git)"
+  # hg:  [branch:flags]
+  PS1="$PS1$(prompt_hg)"
   # misc: [cmd#:hist#]
   # PS1="$PS1$c1[$c0#\#$c1:$c0!\!$c1]$c9"
   # path: [user@host:path]
