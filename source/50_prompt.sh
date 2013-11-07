@@ -72,17 +72,15 @@ function prompt_git() {
 # hg status.
 function prompt_hg() {
   prompt_getcolors
-  local status summary output bookmark flags
-  status="$(hg status 2>/dev/null)"
+  local summary output bookmark flags
   summary="$(hg summary 2>/dev/null)"
   [[ $? != 0 ]] && return;
   output="$(echo "$summary" | awk '/branch:/ {print $2}')"
   bookmark="$(echo "$summary" | awk '/bookmarks:/ {print $2}')"
-  #[[ "$output" ]] || output="$(git branch | perl -ne '/^\* (.*)/ && print $1')"
   flags="$(
-    echo "$status" | awk 'BEGIN {r="";a=""} \
-      /(^M)/        {r= "+"}\
-      /(^\\?)/      {a= "?"}\
+    echo "$summary" | awk 'BEGIN {r="";a=""} \
+      /(modified)/     {r= "+"}\
+      /(unknown)/      {a= "?"}\
       END {print r a}'
   )"
   output="$output:$bookmark"
