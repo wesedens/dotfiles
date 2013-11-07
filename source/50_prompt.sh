@@ -27,6 +27,7 @@ if [[ ! "${prompt_colors[@]}" ]]; then
     "36" # information color
     "37" # bracket color
     "31" # error color
+    "32" # information color
   )
 
   if [[ "$SSH_TTY" ]]; then
@@ -39,7 +40,7 @@ if [[ ! "${prompt_colors[@]}" ]]; then
 fi
 
 # Inside a prompt function, run this alias to setup local $c0-$c9 color vars.
-alias prompt_getcolors='prompt_colors[9]=; local i; for i in ${!prompt_colors[@]}; do local c$i="\[\e[0;${prompt_colors[$i]}m\]"; done'
+alias prompt_getcolors='prompt_colors[9]=; local i; for i in ${!prompt_colors[@]}; do local c$i="\[\e[01;${prompt_colors[$i]}m\]"; done'
 
 # Exit code of previous command.
 function prompt_exitcode() {
@@ -131,10 +132,10 @@ function prompt_command() {
   # misc: [cmd#:hist#]
   # PS1="$PS1$c1[$c0#\#$c1:$c0!\!$c1]$c9"
   # path: [user@host:path]
-  PS1="$PS1$c1[$c0\u$c1@$c0\h$c1:$c0\w$c1]$c9"
+  PS1="$PS1$c1[$c3\u$c1@$c3\h$c1:$c3\w$c1]$c9"
   PS1="$PS1\n"
   # date: [HH:MM:SS]
-  PS1="$PS1$c1[$c0$(date +"%H$c1:$c0%M$c1:$c0%S")$c1]$c9"
+  PS1="$PS1$c1[$c3$(date +"%H$c1:$c3%M$c1:$c3%S")$c1]$c9"
   # exit code: 127
   PS1="$PS1$(prompt_exitcode "$exit_code")"
   PS1="$PS1 \$ "
