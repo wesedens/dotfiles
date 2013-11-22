@@ -12,7 +12,6 @@ if [[ "$OSTYPE" == ^darwin ]]; then
 fi
 
 alias ll="ls -l --group-directories-first"
-alias ls='ls -hFG'  # add colors for filetype recognition
 alias la='ls -Al'          # show hidden files
 alias lx='ls -lXB'         # sort by extension
 alias lk='ls -lSr'         # sort by size, biggest last
