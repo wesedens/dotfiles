@@ -10,3 +10,6 @@ function path_remove() {
   # output the new array
   echo "${t[*]}"
 }
+
+# vi editing mode
+set -o vi
