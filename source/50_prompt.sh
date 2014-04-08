@@ -142,4 +142,12 @@ function prompt_command() {
   PS1+=' \$ '
 }
 
-PROMPT_COMMAND="prompt_command"
+function unprompt_command() {
+    unset PROMPT_COMMAND
+    
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
+}
+
+alias prompt='PROMPT_COMMAND="prompt_command"'
+alias unprompt='unprompt_command'
+#PROMPT_COMMAND="prompt_command"
