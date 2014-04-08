@@ -7,7 +7,7 @@ umask 022
 # The 'ls' family (this assumes you use a recent GNU ls)
 #-------------------------------------------------------------
 alias ls='ls -hF --color'  # add colors for filetype recognition
-if [[ "$OSTYPE" == ^darwin ]]; then
+if [[ "$OSTYPE" =~ ^darwin ]]; then
     alias ls='ls -hFG'  # add colors for filetype recognition
 fi
 
