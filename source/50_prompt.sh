@@ -150,4 +150,5 @@ function unprompt_command() {
 
 alias prompt='PROMPT_COMMAND="prompt_command"'
 alias unprompt='unprompt_command'
-#PROMPT_COMMAND="prompt_command"
+
+PROMPT_COMMAND="prompt_command"
