@@ -28,6 +28,7 @@ if [[ ! "${prompt_colors[@]}" ]]; then
     "37" # bracket color
     "31" # error color
     "32" # information color
+    "34" # color
   )
 
   if [[ "$SSH_TTY" ]]; then
@@ -139,7 +140,7 @@ function prompt_command() {
   PS1="$PS1$c1[$c3$(date +"%H$c1:$c3%M$c1:$c3%S")$c1]$c9"
   # exit code: 127
   PS1="$PS1$(prompt_exitcode "$exit_code")"
-  PS1+=' \$ '
+  PS1+=" $c4\$$c9 "
 }
 
 function unprompt_command() {
