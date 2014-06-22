@@ -29,7 +29,6 @@ if [[ ! "${prompt_colors[@]}" ]]; then
     "31" # error color
     "32" # information color
     "34" # color
-    "10" # light gray
   )
 
   if [[ "$SSH_TTY" ]]; then
@@ -43,7 +42,7 @@ if [[ ! "${prompt_colors[@]}" ]]; then
 fi
 
 # Inside a prompt function, run this alias to setup local $c0-$c9 color vars.
-alias prompt_getcolors='prompt_colors[9]=; local i; for i in ${!prompt_colors[@]}; do local c$i="\[\e[01;${prompt_colors[$i]}m\]"; done'
+alias prompt_getcolors='prompt_colors[9]=; local i; for i in ${!prompt_colors[@]}; do local c$i="\[\e[01;${prompt_colors[$i]}m\]"; done; c9="\[\e[0;37m\]"'
 
 # Exit code of previous command.
 function prompt_exitcode() {
@@ -124,6 +123,7 @@ function prompt_command() {
   [[ "$simple_prompt" ]] && PS1='\n$ ' && return
 
   prompt_getcolors
+
   # http://twitter.com/cowboy/status/150254030654939137
   PS1="\n"
   # svn: [repo:lastchanged]
@@ -141,7 +141,7 @@ function prompt_command() {
   PS1="$PS1$c1[$c3$(date +"%H$c1:$c3%M$c1:$c3%S")$c1]$c9"
   # exit code: 127
   PS1="$PS1$(prompt_exitcode "$exit_code")"
-  PS1+=" $c4\$$c5 "
+  PS1+=" $c4\$$c9 "
 }
 
 function unprompt_command() {
