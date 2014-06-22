@@ -42,7 +42,7 @@ if [[ ! "${prompt_colors[@]}" ]]; then
 fi
 
 # Inside a prompt function, run this alias to setup local $c0-$c9 color vars.
-alias prompt_getcolors='prompt_colors[9]=; local i; for i in ${!prompt_colors[@]}; do local c$i="\[\e[01;${prompt_colors[$i]}m\]"; done; c9="\[\e[0;37m\]"'
+alias prompt_getcolors='prompt_colors[9]=; local i; for i in ${!prompt_colors[@]}; do local c$i="\[\e[01;${prompt_colors[$i]}m\]"; done; c9="\[\e[0;38m\]"'
 
 # Exit code of previous command.
 function prompt_exitcode() {
