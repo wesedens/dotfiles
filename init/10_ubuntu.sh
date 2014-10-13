@@ -1,5 +1,9 @@
-# Ubuntu-only stuff. Abort if not Ubuntu.
-[[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]] || return 1
+# Abort if not debian based
+OS="$(cat /etc/issue 2> /dev/null)"
+
+[[ "${OS}" == *Ubuntu* ]] || \
+[[ "${OS}" == *Mint* ]]   || \
+[[ "${OS}" == *Debian* ]] || return 1
 
 # If the old files isn't removed, the duplicate APT alias will break sudo!
 sudoers_old="/etc/sudoers.d/sudoers-cowboy"; [[ -e "$sudoers_old" ]] && sudo rm "$sudoers_old"
@@ -42,6 +46,7 @@ packages=(
   tree sl id3tool cowsay
   nmap telnet
   htop
+  tmux
 )
 
 list=()
