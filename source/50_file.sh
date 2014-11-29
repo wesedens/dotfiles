@@ -27,6 +27,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias -- -='cd -'
 
+# tmux is finicky and we need 256 colors
+alias tmux='tmux -2'
+
 # File size
 alias fs="stat -f '%z bytes'"
 alias df='df -kTh'
