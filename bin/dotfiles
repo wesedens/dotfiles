@@ -315,6 +315,10 @@ mkdir -p "$DOTFILES/caches/init"
 backup_dir="$DOTFILES/backups/$(date "+%Y_%m_%d-%H_%M_%S")/"
 backup=
 
+# copy the git completion script to the link directory
+curl "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh" \
+    -o $DOTFILES/source/00_git-prompt.sh
+
 # Execute code for each file in these subdirectories.
 do_stuff "copy"
 do_stuff "link"

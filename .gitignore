@@ -9,3 +9,6 @@
 
 # Ignore any file with LOCAL in the name (good for per-machine vars/functions)
 *LOCAL*
+
+# this gets downloaded on a run of dotfiles
+/source/00_git-prompt.sh
