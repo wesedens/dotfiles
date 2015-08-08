@@ -21,8 +21,6 @@ casks=(
   # Applications
   a-better-finder-rename
   bettertouchtool
-  chromium
-  chronosync
   gyazo
   istat-menus
   iterm2

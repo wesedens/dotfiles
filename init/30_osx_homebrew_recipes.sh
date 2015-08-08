@@ -16,6 +16,7 @@ recipes=(
   lesspipe
   mercurial
   nmap
+  reattach-to-user-namespace
   sl
   ssh-copy-id
   terminal-notifier
