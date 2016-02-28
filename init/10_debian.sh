@@ -1,9 +1,5 @@
 # Abort if not debian based
-OS="$(cat /etc/issue 2> /dev/null)"
-
-[[ "${OS}" == *Ubuntu* ]] || \
-[[ "${OS}" == *Mint* ]]   || \
-[[ "${OS}" == *Debian* ]] || return 1
+is_debian || return 1
 
 # If the old files isn't removed, the duplicate APT alias will break sudo!
 sudoers_old="/etc/sudoers.d/sudoers-cowboy"; [[ -e "$sudoers_old" ]] && sudo rm "$sudoers_old"

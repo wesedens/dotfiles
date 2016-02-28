@@ -1,6 +1,6 @@
 # Dotfiles
 
-My OSX / Ubuntu dotfiles.
+My OSX / Debian derivative dotfiles.
 
 ## About this project
 
@@ -16,7 +16,7 @@ That command is [dotfiles][dotfiles], and this is my "dotfiles" Git repo.
 
 When [dotfiles][dotfiles] is run for the first time, it does a few things:
 
-1. In Ubuntu, Git is installed if necessary via APT (it's already there in OSX).
+1. In Debian, Git is installed if necessary via APT (it's already there in OSX).
 1. This repo is cloned into your user directory, under `~/.dotfiles`.
 1. Files in `/copy` are copied into `~/`. ([read more](#the-copy-step))
 1. Files in `/link` are symlinked into `~/`. ([read more](#the-link-step))
@@ -52,7 +52,7 @@ Scripts in the `/init` subdirectory will be executed. A whole bunch of things wi
 * Homebrew casks via the [init/30_osx_homebrew_casks.sh](init/30_osx_homebrew_casks.sh) script
 * [Fonts](/cowboy/dotfiles/tree/master/conf/osx/fonts) via the [init/50_osx_fonts.sh](init/50_osx_fonts.sh) script
 
-#### Ubuntu
+#### Debian
 * APT packages and git-extras via the [init/20_ubuntu_apt.sh](init/20_ubuntu_apt.sh) script
 
 #### Both
@@ -78,7 +78,7 @@ The easiest way to install the XCode Command Line Tools in OSX 10.9+ is to open 
 
 _Tested in OSX 10.10_
 
-### Ubuntu Notes
+### Debian Notes
 
 You might want to set up your ubuntu server [like I do it](https://github.com/cowboy/dotfiles/wiki/ubuntu-setup), but then again, you might not.
 

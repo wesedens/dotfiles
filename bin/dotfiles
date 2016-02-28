@@ -42,11 +42,16 @@ function assert() {
 function is_osx() {
   [[ "$OSTYPE" =~ ^darwin ]] || return 1
 }
-function is_ubuntu() {
-  [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]] || return 1
+function is_debian() {
+  # Abort if not debian based
+  OS="$(cat /etc/issue 2> /dev/null)"
+
+  [[ "${OS}" =~ Ubuntu ]] || \
+  [[ "${OS}" =~ Mint   ]] || \
+  [[ "${OS}" =~ Debian ]] || return 1
 }
 function get_os() {
-  for os in osx ubuntu; do
+  for os in osx debian; do
     is_$os; [[ $? == ${1:-0} ]] && echo $os
   done
 }
@@ -266,9 +271,9 @@ if [[ ! "$(type -P gcc)" ]] && is_osx; then
   exit 1
 fi
 
-# If Git is not installed, install it (Ubuntu only, since Git comes standard
+# If Git is not installed, install it (Debian only, since Git comes standard
 # with recent XCode or CLT)
-if [[ ! "$(type -P git)" ]] && is_ubuntu; then
+if [[ ! "$(type -P git)" ]] && is_debian; then
   e_header "Installing Git"
   sudo apt-get -qq install git-core
 fi
