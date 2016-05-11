@@ -21,6 +21,7 @@
   rv     = review
   st     = status
   kd     = difftool -y -t kdiff3
+  ctags  = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctags"
 [branch "master"]
   remote = origin
   merge  = refs/heads/master
