@@ -24,10 +24,7 @@ casks=(
   gyazo
   istat-menus
   iterm2
-  remote-desktop-connection
   spotify
-  totalfinder
-  vagrant
   vlc
 )
 

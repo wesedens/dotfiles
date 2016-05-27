@@ -6,12 +6,10 @@ is_osx || return 1
 
 # Homebrew recipes
 recipes=(
-  ansible
   bash
   cmatrix
   cowsay
   git
-  git-extras
   htop-osx
   lesspipe
   mercurial
