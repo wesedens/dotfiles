@@ -16,11 +16,11 @@
   df     = diff
   g      = grep -I
   lg     = log -p
-  pp     = !"echo 'Pull'; git pull; echo 'Push'; git push"
+  gg     = log --decorate --oneline --graph --date-order --all
   rb     = rbranch
   rv     = review
   st     = status
-  kd     = difftool -y -t kdiff3
+  vd     = difftool -y -t vimdiff
   ctags  = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctags"
 [branch "master"]
   remote = origin
@@ -42,11 +42,11 @@
   changed   = green
   untracked = cyan
 [merge]
-  tool = kdiff3
+  tool = vimdiff
   log  = true
 [diff]
-  tool = kdiff3
-[difftool "kdiff3"]
+  tool = vimdiff
+[difftool "vimdiff"]
 [rerere]
   enabled = 1
 [url "git@github.com:"]
