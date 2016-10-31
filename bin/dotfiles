@@ -314,14 +314,14 @@ backup=
 
 ln -sf "$DOTFILES/.git-template" ~/
 
-# copy the git completion script to the link directory
-curl "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh" \
-    -o $DOTFILES/source/00_git-prompt.sh
-
 # Execute code for each file in these subdirectories.
 do_stuff "copy"
 do_stuff "link"
 do_stuff "init"
+
+# copy the git completion script to the link directory
+curl "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh" \
+    -o $DOTFILES/source/00_git-prompt.sh
 
 # Alert if backups were made.
 if [[ "$backup" ]]; then

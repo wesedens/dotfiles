@@ -12,6 +12,7 @@ packages=(
   build-essential
   cowsay
   git-core
+  curl
   htop
   libssl-dev
   mercurial
