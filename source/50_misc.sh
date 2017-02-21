@@ -5,7 +5,12 @@ shopt -s nocaseglob
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-export GREP_OPTIONS='--color=auto'
+# Move export GREP_OPTIONS="--color=auto" (which is deprecated) from .exports to
+# alias Always enable colored `grep` output`
+GREP_OPTIONS='--color=auto'
+alias grep="grep $GREP_OPTIONS"
+alias fgrep="fgrep $GREP_OPTIONS"
+alias egrep="egrep $GREP_OPTIONS"
 
 # Prevent less from clearing the screen while still showing colors.
 export LESS=-XR
