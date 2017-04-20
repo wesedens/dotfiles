@@ -19,6 +19,7 @@ packages=(
   nmap
   silversearcher-ag
   sl
+  stow
   telnet
   tmux
   tree

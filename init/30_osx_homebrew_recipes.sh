@@ -17,6 +17,7 @@ recipes=(
   reattach-to-user-namespace
   sl
   ssh-copy-id
+  stow
   terminal-notifier
   tree
 )

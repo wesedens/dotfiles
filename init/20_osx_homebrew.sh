@@ -39,4 +39,6 @@ function brew_install_recipes() {
 }
 
 # tmux setting for vim to be able to use the clipboard inside tmux
-echo 'set-option -g default-command "reattach-to-user-namespace -l bash"' >> $DOTFILES/link/.tmux.conf
+if ! grep -q 'reattach-to-user' ${DOTFILES}/tmux/.tmux.conf; then
+    echo 'set-option -g default-command "reattach-to-user-namespace -l bash"' >> $DOTFILES/tmux/.tmux.conf
+fi

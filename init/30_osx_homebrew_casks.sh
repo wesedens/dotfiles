@@ -7,7 +7,7 @@ is_osx || return 1
 # Ensure the cask keg and recipe are installed.
 kegs=(caskroom/cask)
 brew_tap_kegs
-recipes=(brew-cask)
+recipes=(cask)
 brew_install_recipes
 
 # Exit if, for some reason, cask is not installed.
