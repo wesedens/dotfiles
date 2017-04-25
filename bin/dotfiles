@@ -42,8 +42,14 @@ function is_debian() {
   [[ "${OS}" =~ Mint   ]] || \
   [[ "${OS}" =~ Debian ]] || return 1
 }
+function is_redhat() {
+  # Abort if not debian based
+  OS="$(cat /etc/issue 2> /dev/null)"
+
+  [[ "${OS}" =~ "Red Hat" ]] || return 1
+}
 function get_os() {
-  for os in osx debian; do
+  for os in osx debian redhat; do
     is_$os; [[ $? == ${1:-0} ]] && echo $os
   done
 }
