@@ -44,8 +44,9 @@ function is_debian() {
 }
 function is_redhat() {
   # Abort if not debian based
-  OS="$(cat /etc/issue 2> /dev/null)"
+  OS="$(cat /etc/*release 2> /dev/null)"
 
+  [[ "${OS}" =~ CentOS    ]] || \
   [[ "${OS}" =~ "Red Hat" ]] || return 1
 }
 function get_os() {
