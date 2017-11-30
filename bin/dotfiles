@@ -246,8 +246,8 @@ do_stuff "init"
 
 # copy the git completion script to the link directory
 if [ ! -f "$DOTFILES/source/00_git-prompt.sh" ]; then
-    curl "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh" \
-    -o $DOTFILES/source/00_git-prompt.sh
+    cd $DOTFILES/source/ && wget "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh" \
+    -O $DOTFILES/source/00_git-prompt.sh
 fi
 
 # stow needs to be run from the dotfiles directory
