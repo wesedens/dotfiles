@@ -8,7 +8,7 @@
   deltaBaseCacheLimit = 1G
   editor = vim
 [apply]
-  whitespace = fix
+  whitespace = warn
 [alias]
   br     = branch
   ci     = commit
